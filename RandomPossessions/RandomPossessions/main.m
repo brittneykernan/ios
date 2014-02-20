@@ -14,13 +14,22 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
 
-        NSMutableArray *items = [[NSMutableArray alloc] init];
-
-        BNRItem *p = [[BNRItem alloc] initWithName:@"Red Sofe"
+       
+        BNRItem *a = [[BNRItem alloc] initWithName:@"Red Sofa"
                                     valueInDollars:100
                                       serialNumber:@"3456tg"];
         
-        NSLog(@"%@", p);
+        BNRItem *b = [[BNRItem alloc] initWithName:@"Blue Sofa"
+                                    valueInDollars:100
+                                      serialNumber:@"3gdft3"];
+        [b setChild:a];
+        
+
+        b = nil;
+        
+        NSLog(@"Container %@", [a parent]);
+        
+        a = nil;
         
     }
     return 0;

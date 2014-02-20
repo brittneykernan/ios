@@ -9,11 +9,8 @@
 #import "BNRItem.h"
 
 @implementation BNRItem
-
-+ (id)randomItem
-{
-    return 
-}
+@synthesize itemName;
+@synthesize serialNumber, valueInDollars, dateCreated, parent, child;
 
 - (id)initWithName:(NSString *)name
     valueInDollars:(int)value
@@ -40,39 +37,13 @@
                  serialNumber:@""];
 }
 
-- (void)setItemName:(NSString *)str
+- (void)setChild:(BNRItem *)i
 {
-    itemName = str;
-}
-- (NSString *)itemName
-{
-    return itemName;
+    child = i;
+    [i setParent:self];
 }
 
-- (void)setSerialNumber:(NSString *)str
-{
-    serialNumber = str;
-}
 
-- (NSString *)serialNumber
-{
-    return serialNumber;
-}
-
-- (void)setValueInDollars:(int)i
-{
-    valueInDollars = i;
-}
-
-- (int)valueInDollars
-{
-    return valueInDollars;
-}
-
-- (NSDate *)dateCreated
-{
-    return dateCreated;
-}
 - (NSString *)description
 {
     NSString *descriptionString =
@@ -84,6 +55,11 @@
     
     return descriptionString;
     
+}
+
+- (void)dealloc
+{
+    NSLog(@"Destoryed %@",self);
 }
 
 @end

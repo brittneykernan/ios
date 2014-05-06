@@ -14,8 +14,8 @@
     valueInDollars:(int)value
       serialNumber:(NSString *)serial;
 
-@property (nonatomic, strong) NSString *itemName;
-@property (nonatomic, strong) NSString *serialNumber;
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, copy) NSString *serialNumber;
 @property (nonatomic) int valueInDollars;
 @property (nonatomic, readonly, strong) NSDate *dateCreated;
 
